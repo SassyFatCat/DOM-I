@@ -53,3 +53,17 @@ const ctaText = document.querySelectorAll('.cta-text *');
 const ctaImg = document.querySelector('.cta img');
 ctaText.forEach((element, index) => element.textContent = Object.values(siteContent.cta)[index]);
 ctaImg.src = siteContent.cta["img-src"];
+
+//MAIN-CONTENT ------------------------------------------------------>
+const mainContent = document.querySelectorAll('.main-content h4, .main-content p, .main-content img');
+mainContent.forEach((element, index) => element.tagName == "IMG" ? element.src = Object.values(siteContent["main-content"])[index]
+                                                                : element.textContent = Object.values(siteContent["main-content"])[index]
+);
+
+//CONTACT ---------------------------------------------------------->
+const contact = document.querySelectorAll('.contact *');
+contact.forEach((element, index) => element.textContent = Object.values(siteContent.contact)[index]);
+
+//FOOTER ----------------------------------------------------------->
+const footerParagraph = document.querySelector('footer p');
+footerParagraph.textContent = siteContent.footer["copyright"];
