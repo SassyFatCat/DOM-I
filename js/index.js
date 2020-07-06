@@ -67,3 +67,18 @@ contact.forEach((element, index) => element.textContent = Object.values(siteCont
 //FOOTER ----------------------------------------------------------->
 const footerParagraph = document.querySelector('footer p');
 footerParagraph.textContent = siteContent.footer["copyright"];
+
+//ADD NEW CONTENT
+const headerNav = document.querySelector('header nav');
+const newLinkA = document.createElement('a');
+newLinkA.textContent = "LinkA";
+const newLinkB = document.createElement('a');
+newLinkB.textContent = "LinkB";
+headerNav.prepend(newLinkA);
+headerNav.appendChild(newLinkB);
+
+header.forEach(x => x.style.color = 'blue');
+newLinkA.style.color = 'blue';
+newLinkB.style.color = 'blue';
+
+
