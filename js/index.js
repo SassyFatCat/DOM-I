@@ -69,16 +69,51 @@ const footerParagraph = document.querySelector('footer p');
 footerParagraph.textContent = siteContent.footer["copyright"];
 
 //ADD NEW CONTENT
-const headerNav = document.querySelector('header nav');
-const newLinkA = document.createElement('a');
-newLinkA.textContent = "LinkA";
-const newLinkB = document.createElement('a');
-newLinkB.textContent = "LinkB";
-headerNav.prepend(newLinkA);
-headerNav.appendChild(newLinkB);
+// const headerNav = document.querySelector('header nav');
+// const newLinkA = document.createElement('a');
+// newLinkA.textContent = "LinkA";
+// const newLinkB = document.createElement('a');
+// newLinkB.textContent = "LinkB";
+// headerNav.prepend(newLinkA);
+// headerNav.appendChild(newLinkB);
 
-header.forEach(x => x.style.color = 'blue');
-newLinkA.style.color = 'blue';
-newLinkB.style.color = 'blue';
+// header.forEach(x => x.style.color = 'blue');
+// newLinkA.style.color = 'blue';
+// newLinkB.style.color = 'blue';
+
+// STRETCH
+//Select all elements
+const allElements = document.querySelectorAll('h1, h4, p, img, a, button');
+
+function updateContent(infoObject) {
+// Extract all JSON values into an array
+const infoArray = [];
+for (let i = 0; i < Object.keys(infoObject).length; i++) {
+  for (let j = 0; j < Object.values(infoObject[Object.keys(infoObject)[i]]).length; j++) {
+    infoArray.push(Object.values(infoObject[Object.keys(infoObject)[i]])[j])
+  }
+};
+// Assign values to elements from infoArray
+allElements.forEach((x, index) => {
+  switch(x.tagName) {
+    case 'A':
+    case 'H1':
+    case 'H4':
+    case 'P':
+    case 'BUTTON':
+    x.textContent = infoArray[index];
+    break;
+
+    case 'IMG':
+    x.src = infoArray[index];
+    break;
+  }
+});
+}
+updateContent(siteContent);
+
+const button = document.querySelector('.cta-text button');
+
+button.addEventListener('click', toggleInfo);
 
 
