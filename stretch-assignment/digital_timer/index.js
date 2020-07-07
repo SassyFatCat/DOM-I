@@ -1,3 +1,4 @@
+//Setup prompt and time object
 const timeString = prompt("Enter timer amount", "Must be 4 digits, ex: 0100").split('');
 const timeObj = {
     tens: parseInt(timeString[0], 10),
@@ -5,7 +6,7 @@ const timeObj = {
     tenSec: parseInt(timeString[2], 10),
     oneSec: parseInt(timeString[3], 10),
 }
-console.log(timeObj);
+
 //Assign variables
 const tens = document.querySelector('#tens');
 const ones = document.querySelector('#ones');
@@ -34,8 +35,7 @@ if (timeObj.ones === 0 && timeObj.tenSec === 0 && timeObj.oneSec === 0 && timeOb
 }
 
 if (timeObj.tenSec === 0 && timeObj.oneSec === 0) {
-    timeObj.tenSec = 5;
-    timeObj.oneSec = 10;
+    timeObj.tenSec = 6;
     timeObj.ones--;
 }
 
