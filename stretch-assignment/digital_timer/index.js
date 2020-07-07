@@ -1,4 +1,4 @@
-const timeString = prompt("Enter timer amount", "####").split('');
+const timeString = prompt("Enter timer amount", "Must be 4 digits, ex: 0100").split('');
 const timeObj = {
     tens: parseInt(timeString[0], 10),
     ones: parseInt(timeString[1], 10),
