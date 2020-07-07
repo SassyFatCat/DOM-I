@@ -23,40 +23,30 @@ tens.textContent = timeObj.tens;
 ones.textContent = timeObj.ones;
 tenSec.textContent = timeObj.tenSec;
 oneSec.textContent = timeObj.oneSec;
+// Break point
 if (timeObj.tens === 0 && timeObj.ones === 0 && timeObj.tenSec === 0 && timeObj.oneSec === 0) {
         stop();
 }
-
+// Timer
 if (timeObj.ones === 0 && timeObj.tenSec === 0 && timeObj.oneSec === 0 && timeObj.tens > 0) {
-    tenSpot();
     timeObj.ones = 10;
+    timeObj.tens--;
 }
 
 if (timeObj.tenSec === 0 && timeObj.oneSec === 0) {
-    timeObj.tenSec = 6;
-    oneSpot();
+    timeObj.tenSec = 5;
     timeObj.oneSec = 10;
-    tenSecSpot();
-}
-
-timeObj.oneSec--
-if (timeObj.oneSec < 0) {
-    timeObj.oneSec = 9;
-    tenSecSpot();
-}
-}
-
-function tenSecSpot() {
-    timeObj.tenSec--;
-}
-
-function oneSpot() {
     timeObj.ones--;
 }
 
-function tenSpot() {
-    timeObj.tens--
+if (timeObj.oneSec === 0) {
+    timeObj.oneSec = 10;
+    timeObj.tenSec--;
 }
+
+timeObj.oneSec--
+}
+// Break point function
 const stop = function() {
     clearInterval(timerInterval);
 }
